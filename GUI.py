@@ -1,4 +1,5 @@
 import tkinter as tk
+import random as rnd
 
 class GUI(object):
     def __init__(self):
@@ -8,6 +9,21 @@ class GUI(object):
         self.window = tk.Tk()
         self.window.geometry("1024x1024+-1800+355")
         self.window.title("Chess engine")
+        self.images = {
+            # https://commons.wikimedia.org/wiki/Category:PNG_chess_pieces/Standard_transparent  2024|10|18
+            'b' : tk.PhotoImage(file="./images/black_bishop.png"),
+            'k' : tk.PhotoImage(file="./images/black_king.png"),
+            'n' : tk.PhotoImage(file="./images/black_knight.png"),
+            'p' : tk.PhotoImage(file="./images/black_pawn.png"),
+            'q' : tk.PhotoImage(file="./images/black_queen.png"),
+            'r' : tk.PhotoImage(file="./images/black_rook.png"),
+            'B' : tk.PhotoImage(file="./images/white_bishop.png"),
+            'K' : tk.PhotoImage(file="./images/white_king.png"),
+            'N' : tk.PhotoImage(file="./images/white_knight.png"),
+            'P' : tk.PhotoImage(file="./images/white_pawn.png"),
+            'Q' : tk.PhotoImage(file="./images/white_queen.png"),
+            'R' : tk.PhotoImage(file="./images/white_rook.png")
+        }
 
         self.list_of_fields = []
         for i in range(64):
@@ -23,7 +39,7 @@ class GUI(object):
             self.list_of_fields[i].place(y=(125*(i//8))+12, x=(125*(i%8))+12, width=125, height=125)
 
     def field_click(self, index):
-        pass
+        self.list_of_fields[index].config(image=rnd.choice(list(self.images.values())))
 
     def mainloop(self):
         self.window.mainloop()
