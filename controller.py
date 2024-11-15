@@ -9,6 +9,7 @@ class Controller(object):
         print(index)
 
     def start_gui(self):
+        self.gui.load_board()
         self.gui.mainloop()
 
     def set_gui(self, ref_gui):
