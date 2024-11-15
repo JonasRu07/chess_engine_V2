@@ -1,6 +1,8 @@
 import tkinter as tk
 import random as rnd
 
+#TODO change images Pieces in list, so that tey can be accessed by just their id;
+
 class GUI(object):
     def __init__(self):
         self.controller = None
@@ -43,3 +45,9 @@ class GUI(object):
 
     def mainloop(self):
         self.window.mainloop()
+
+    def set_board(self, ref_board):
+        self.board = ref_board
+
+    def set_controller(self, ref_controller):
+        self.controller = ref_controller
